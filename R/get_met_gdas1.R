@@ -40,11 +40,12 @@ get_met_gdas1 <- function(days,
     seq(min_date, max_date, by = "1 day") %>% 
     lubridate::day()
   
-  month_names <- 
-    seq(min_date, max_date, by = "1 day") %>%
-    lubridate::month(label = TRUE, abbr = TRUE, locale = "en_US.UTF-8")  %>%
-    as.character() %>%
-    tolower()
+  month_names <-
+      seq(min_date, max_date, by = "1 day") %>%
+      lubridate::month(label = TRUE, abbr = TRUE, 
+                   locale = Sys.getlocale("LC_TIME")) %>% # CHANGED HERE FOLLOWING https://github.com/rich-iannone/splitr/issues/57
+      as.character() %>%
+      tolower()
   
   met_years <- 
     seq(min_date, max_date, by = "1 day") %>%
