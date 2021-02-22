@@ -167,9 +167,9 @@ to_null_dev <- function(system_type) {
 execute_on_system <- function(sys_cmd, system_type) {
 
   if (system_type %in% c("mac", "unix")) {
-    system(cat(sys_cmd))
+    system(sys_cmd)
   } else if (system_type == "win") {
-    shell(cat(sys_cmd))
+    shell(sys_cmd)
   }
 }
 
