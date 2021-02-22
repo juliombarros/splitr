@@ -159,16 +159,16 @@ hysplit_dispersion <- function(lat = 49.263,
   
   # The CONTROL file is now complete and in the
   # working directory, so, execute the model run
-  sys_cmd <- 
-    paste0(
-      "(cd \"",
-      exec_dir,
-      "\" && \"",
-      hycs_std_binary_path,
-      "\" ",
-      to_null_dev(system_type = system_type),
-      ")"
-    )
+  sys_cmd <- "(cd \"/rigel/home/jm4988/hysplit/working"\ && "/rigel/home/jm4988/hysplit/exec/hyts_std" >> /dev/null 2>&1)"
+    #paste0(
+    #  "(cd \"",
+    #  exec_dir,
+    #  "\" && \"",
+    #  hycs_std_binary_path,
+    #  "\" ",
+    #  to_null_dev(system_type = system_type),
+    #  ")"
+    #)
   
   if (isFALSE(softrun)) {
     execute_on_system(sys_cmd, system_type = system_type)
